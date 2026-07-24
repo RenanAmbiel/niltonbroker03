@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <meta charset="UTF-8" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Tour Virtual</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: black;
+        cursor: pointer;
+      }
+
+      .slide-container {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .slide img {
+        max-height: 100vh;
+        max-width: 100vw;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .slide.active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .controls {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .controls button {
+        font-size: 20px;
+        padding: 10px 15px;
+        border: none;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+      }
+
+      .controls button:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container" id="slideshow">
+      <div class="slide active">
+        <img src="img/san_paolo/pic02.webp" alt="Slide 1" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic03.webp" alt="Slide 3" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic04.webp" alt="Slide 4" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic05.webp" alt="Slide 5" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic06.webp" alt="Slide 6" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic07.webp" alt="Slide 7" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic08.webp" alt="Slide 8" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic09.webp" alt="Slide 9" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic10.webp" alt="Slide 10" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic11.webp" alt="Slide 11" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic12.webp" alt="Slide 12" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic13.webp" alt="Slide 13" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic14.webp" alt="Slide 14" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic15.webp" alt="Slide 15" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic16.webp" alt="Slide 16" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic17.webp" alt="Slide 17" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic18.webp" alt="Slide 18" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic19.webp" alt="Slide 19" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic20.webp" alt="Slide 20" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic21.webp" alt="Slide 21" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic22.webp" alt="Slide 22" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic23.webp" alt="Slide 23" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic24.webp" alt="Slide 24" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic25.webp" alt="Slide 25" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic26.webp" alt="Slide 26" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic27.webp" alt="Slide 27" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic28.webp" alt="Slide 28" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic29.webp" alt="Slide 29" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic30.webp" alt="Slide 30" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic31.webp" alt="Slide 31" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic32.webp" alt="Slide 32" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic33.webp" alt="Slide 33" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic34.webp" alt="Slide 34" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic35.webp" alt="Slide 35" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic36.webp" alt="Slide 36" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic37.webp" alt="Slide 37" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic38.webp" alt="Slide 38" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic39.webp" alt="Slide 39" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic40.webp" alt="Slide 40" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic41.webp" alt="Slide 41" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic42.webp" alt="Slide 42" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic43.webp" alt="Slide 43" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic44.webp" alt="Slide 44" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic45.webp" alt="Slide 45" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic46.webp" alt="Slide 46" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic47.webp" alt="Slide 47" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic48.webp" alt="Slide 48" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic49.webp" alt="Slide 49" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic50.webp" alt="Slide 50" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic51.webp" alt="Slide 51" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic52.webp" alt="Slide 52" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic53.webp" alt="Slide 53" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic54.webp" alt="Slide 54" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic55.webp" alt="Slide 55" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic56.webp" alt="Slide 56" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic57.webp" alt="Slide 57" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic58.webp" alt="Slide 58" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic59.webp" alt="Slide 59" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic60.webp" alt="Slide 60" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic61.webp" alt="Slide 61" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic62.webp" alt="Slide 62" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic63.webp" alt="Slide 63" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic64.webp" alt="Slide 64" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic65.webp" alt="Slide 65" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic66.webp" alt="Slide 66" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic67.webp" alt="Slide 67" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic68.webp" alt="Slide 68" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic69.webp" alt="Slide 67" />
+      </div>
+      <div class="slide">
+        <img src="img/san_paolo/pic70.webp" alt="Slide 68" />
+      </div>
+
+      <div class="controls">
+        <button class="modal-nav left" aria-label="Anterior" onclick="event.stopPropagation(); prevSlide()">&larr;</button>
+        <button onclick="event.stopPropagation(); zoomOut()">−</button>
+        <button onclick="event.stopPropagation(); zoomIn()">+</button>
+        <button class="modal-nav right" aria-label="Próximo" onclick="event.stopPropagation(); nextSlide()">&rarr;</button>
+      </div>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll(".slide");
+      const container = document.getElementById("slideshow");
+      let current = 0;
+      let scale = 1;
+      let offsetX = 0;
+      let offsetY = 0;
+      let startX = 0;
+      let startY = 0;
+      let isDragging = false;
+      let lastTouchDist = null;
+
+      function showSlide(index) {
+        const img = getCurrentImg();
+        img.style.transform = "scale(1)";
+        img.style.cursor = "grab";
+        img.style.transition = "transform 0.3s ease";
+        scale = 1;
+        offsetX = 0;
+        offsetY = 0;
+        slides[current].classList.remove("active");
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add("active");
+      }
+
+      function zoomIn() {
+        scale = Math.min(scale + 0.1, 5);
+        updateTransform();
+      }
+
+      function zoomOut() {
+        scale = Math.max(scale - 0.1, 1);
+        if (scale === 1) {
+          offsetX = 0;
+          offsetY = 0;
+        }
+        updateTransform();
+      }
+
+      function updateTransform() {
+        const img = getCurrentImg();
+        img.style.transition = "transform 0.1s linear";
+        img.style.transform = `scale(${scale}) translate(${offsetX}px, ${offsetY}px)`;
+        img.style.cursor = scale > 1 ? "grab" : "default";
+      }
+
+      function getCurrentImg() {
+        return slides[current].querySelector("img");
+      }
+
+      // Zoom com roda do mouse
+      slides.forEach((slide) => {
+        slide.addEventListener("wheel", (e) => {
+          e.preventDefault();
+          if (e.deltaY < 0) zoomIn();
+          else zoomOut();
+        });
+      });
+
+      // Impede clique em botões de ativar o próximo slide
+      document.querySelectorAll(".controls button").forEach((btn) => {
+        btn.addEventListener("click", (e) => e.stopPropagation());
+      });
+
+      // Clique avança (apenas se não estiver arrastando com zoom)
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") nextSlide();
+        if (e.key === "ArrowLeft") prevSlide();
+      });
+
+      function nextSlide() {
+        showSlide(current + 1);
+      }
+
+      function prevSlide() {
+        showSlide(current - 1);
+      }
+
+      // ------ DRAG estilo mapa (mouse)
+      container.addEventListener("mousedown", (e) => {
+        if (scale <= 1) return;
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        container.style.cursor = "grabbing";
+        // Evita seleção de texto durante o arraste
+        e.preventDefault();
+      });
+
+      // Escuta o movimento no document para garantir que o arraste continue mesmo fora do container
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging || scale <= 1) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        startX = e.clientX;
+        startY = e.clientY;
+        offsetX += dx / scale;
+        offsetY += dy / scale;
+        updateTransform();
+      });
+
+      function stopDragging() {
+        if (!isDragging) return;
+        isDragging = false;
+        container.style.cursor = scale > 1 ? "grab" : "default";
+      }
+
+      // Captura o 'mouseup' mesmo se for fora do container
+      document.addEventListener("mouseup", stopDragging);
+      // Caso a janela perca foco (ex.: ALT+TAB) também interrompe o arraste
+      window.addEventListener("blur", stopDragging);
+
+      // ------ DRAG estilo mapa (touch) + pinch-to-zoom
+
+      // Clique com mouse
+      container.addEventListener("click", (e) => {
+        if (scale > 1 || isDragging) return; // não troca se estiver em zoom
+        if (e.target.closest(".controls")) return; // ignora clique em botões
+        const x = e.pageX;
+        if (x < window.innerWidth / 2) {
+          prevSlide();
+        } else {
+          nextSlide();
+        }
+      });
+
+      // Toque em celular
+      container.addEventListener("touchend", (e) => {
+        if (scale > 1) return;
+        if (e.changedTouches.length === 1) {
+          const x = e.changedTouches[0].clientX;
+          if (x < window.innerWidth / 2) {
+            prevSlide();
+          } else {
+            nextSlide();
+          }
+        }
+      });
+
+      // Inicializa
+      showSlide(current);
+    </script>
+  </body>
+</html>
